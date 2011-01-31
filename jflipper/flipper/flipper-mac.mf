@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: flipper.gui.FlipperGUI
+Class-Path: lib/jna.jar lib/libusb4j.jar lib/swt-mac.jar

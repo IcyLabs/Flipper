@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="macRoman" standalone="no"?>
+<jardesc>
+    <jar path="flipper/flipper-win.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/flipper/src/flipper/release-win.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/flipper/flipper-win.mf" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=flipper/src&lt;flipper.gui"/>
+        <javaElement handleIdentifier="=flipper/src&lt;flipper"/>
+        <javaElement handleIdentifier="=flipper/src&lt;flipper.jtag"/>
+        <javaElement handleIdentifier="=flipper/src&lt;flipper.usb"/>
+        <javaElement handleIdentifier="=flipper/src&lt;flipper.console"/>
+    </selectedElements>
+</jardesc>
