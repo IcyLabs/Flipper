@@ -3,7 +3,11 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/jna.jar"/>
-	<classpathentry kind="lib" path="/MicrocIDE/libs/eclipse/org.eclipse.swt.cocoa.macosx.x86_64_3.6.1.v3655c.jar"/>
-	<classpathentry kind="lib" path="lib/libusb4j.jar"/>
+	<classpathentry kind="lib" path="lib/libusb4j.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="flipper_svn/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/org.eclipse.swt.cocoa.macosx.x86_64_3.6.1.v3655c.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
