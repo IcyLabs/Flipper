@@ -1,0 +1,9 @@
+export ORIGCWD=`pwd`
+export TARGET=$1
+
+cd $(dirname $(which $0))
+if [ ! -f $TARGET ]; then
+	export TARGET="$ORIGCWD/$TARGET"
+fi
+
+java -cp flipper-mac.jar flipper.console.Flip $TARGET
