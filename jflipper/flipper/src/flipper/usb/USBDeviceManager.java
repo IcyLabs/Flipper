@@ -21,6 +21,8 @@ public class USBDeviceManager {
 	
 	static {
 		libUSB.usb_init();
+		System.out.println( "Initialising libUSB" );
+		//libUSB.usb_set_debug( 255 );
 	}
 	
 	private USBDeviceManager( ) {
@@ -106,5 +108,16 @@ public class USBDeviceManager {
 	public void runAsThread() {
 		devicePollTimer = new Timer();
 		devicePollTimer.scheduleAtFixedRate( new PollTask(), 0, devicePollDelay );
+	}
+	
+	public void waitForThread() {
+		while ( true ) {
+			try {
+				Thread.sleep( 1000 );
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }

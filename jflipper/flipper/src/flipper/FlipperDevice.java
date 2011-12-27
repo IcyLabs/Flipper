@@ -9,4 +9,7 @@ public abstract class FlipperDevice {
 	public abstract void cleanup();
 	
 	public abstract TabFolder createUserInterface( Composite parent );
+	
+	public abstract void programDeviceWithFile( String filename, StatusDisplay statusDisplay );
 }
+

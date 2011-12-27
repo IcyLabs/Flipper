@@ -1,6 +1,7 @@
 package flipper.targets.penguino;
 
 import flipper.ProgramBinary;
+import flipper.StatusDisplay;
 
 public abstract class Memory {
 

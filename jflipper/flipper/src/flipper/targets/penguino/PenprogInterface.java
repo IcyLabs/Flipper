@@ -49,6 +49,7 @@ public class PenprogInterface implements IJTAGDevice {
 	}
 	
 	protected void finalize() {
+		System.out.println( "Finalizing PenProgInterface" );
 		if ( device != null ) {
 			System.out.println( "PenprogInterface was finalized without being closed first, cleaning up..." );
 			close( );
@@ -162,8 +163,18 @@ public class PenprogInterface implements IJTAGDevice {
 	private void bulkWriteSafe( int endpoint, byte[] bytes ) {
 		int ret = 0;
 		
+		/*
+		System.out.println( "Last error: " + device.lastError() );
+		System.out.println( "Oh hai!" );
+		System.out.println( endpoint );
+		for (int j=0; j<bytes.length; j++) {
+			System.out.format("%02X ", bytes[j]);
+		}
+		System.out.println();
+		*/
 		while ( (ret = device.bulkWrite( endpoint, bytes )) != bytes.length ) {
 			//reportUSBError( "USB Bulk Write (chunk)", device, ret );
+			System.out.println( "Last error: " + device.lastError() );
 			System.out.println( "Safe USB Bulk Write failed (" + ret + "), retrying... " );
 			
 			device.clearHalt( endpoint );

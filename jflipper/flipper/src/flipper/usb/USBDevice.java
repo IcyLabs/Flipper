@@ -59,8 +59,12 @@ public class USBDevice {
 		return libUSB.usb_bulk_read( handle, endpoint, bytes, bytes.length, getTimeout( ) );
 	}
 	
+	public String lastError( ) {
+		return libUSB.usb_strerror();
+	}
+	
 	private int getTimeout( ) {
-		return 1000;
+		return 10000;
 	}
 	
 	public void clearHalt( int endpoint ) {

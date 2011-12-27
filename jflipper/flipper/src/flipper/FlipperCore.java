@@ -19,12 +19,14 @@ public class FlipperCore {
 
 	ArrayList<FlipperDevice> activeDevices = new ArrayList<FlipperDevice>();
 	
+	USBDeviceManager manager;
+	
 	public void initialise() {
 		loadPlugins();
 	}
 	
 	public void beginThreads() {
-		USBDeviceManager manager = USBDeviceManager.getDeviceManager();
+		manager = USBDeviceManager.getDeviceManager();
 		
 		manager.addPlugMonitor(new DevicePlugMonitor() {
 
@@ -39,6 +41,10 @@ public class FlipperCore {
 		});
 		
 		manager.runAsThread( );
+	}
+	
+	public void waitThreads() {
+		manager.waitForThread( );
 	}
 	
 	public void cleanup( ) {

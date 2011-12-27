@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.TabItem;
 
 import flipper.FlipperDevice;
 import flipper.ProgramBinary;
+import flipper.StatusDisplay;
 import flipper.jtag.TAPCommand;
 import flipper.jtag.TAPResponse;
 import flipper.jtag.TAPState;
@@ -50,7 +51,7 @@ public class PenguinoDevice extends FlipperDevice {
 	        String selected = fileDialog.open();
 	        
 	        if ( selected != null ) {
-	        	StatusDisplay statusDisplay = new StatusDisplay( uploadProgress, uploadStatus );
+	        	SWTStatusDisplay statusDisplay = new SWTStatusDisplay( uploadProgress, uploadStatus );
 	        	simpleProgramDevice( selected, statusDisplay );
 	        }
 		}
@@ -60,6 +61,11 @@ public class PenguinoDevice extends FlipperDevice {
 		AVRChip chip = new AVRChip( sm );
 		chip.addMemory( "flash", new AVRFlash( chip, 32*1024 ) );
 		return chip;
+	}
+	
+	@Override
+	public void programDeviceWithFile(String filename, StatusDisplay statusDisplay) {
+		simpleProgramDevice( filename, statusDisplay );
 	}
 	
 	private void simpleProgramDevice( String filename, StatusDisplay statusDisplay ) {
@@ -84,7 +90,7 @@ public class PenguinoDevice extends FlipperDevice {
 		
 		targetMemory.finished( );
 		
-		if ( success ) {
+		if ( success && BOOTRST != null ) { // make sure we have a UI before we do this
 			doFuseBits( statusDisplay );
 		}
 	}
